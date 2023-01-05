@@ -24,12 +24,14 @@ spring:
     hibernate:
       ddl-auto: create
       naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      use-new-id-generator-mappings: false
-    show-sql: true
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 필드명을 그대로 가져다가 DB에서 사용함.
+      use-new-id-generator-mappings: false # jpa의 기본전략을 따라가지 않겠다.
+    show-sql: true # console창에서 보여줌.
     properties:
-      hibernate.format_sql: true
+      hibernate.format_sql: true # sql이 정렬되서 나옴.
 
   jackson:
     serialization:
       fail-on-empty-beans: false
+      
+      
