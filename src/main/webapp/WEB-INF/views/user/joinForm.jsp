@@ -4,7 +4,6 @@
 <!-- ../ 한칸 위로 올라간다는 뜻임 -->
 
 <div class="container">
-	<h2>Stacked form</h2>
 	<form>
 		<div class="form-group">
 			<label for="username">Username:</label> <input type="text" class="form-control" placeholder="Enter username" id="username">
