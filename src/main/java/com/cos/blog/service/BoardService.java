@@ -2,7 +2,11 @@ package com.cos.blog.service;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 // 스프링이 컴포넌트 스캔을 통해서 Bean에 등록을 해줌. IoC를 해준다. 메모리를 대신 띄워준다.
@@ -26,6 +30,11 @@ public class BoardService {
 		boardRepository.save(board);
 	}
 
+	
+	public Page<Board> list(Pageable pageable){
+		return boardRepository.findAll(pageable); // pageable을 넣으면 return 타입이 Page가 됨
+	}
 
+	
 	
 }
