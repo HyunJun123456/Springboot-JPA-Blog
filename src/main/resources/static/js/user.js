@@ -34,7 +34,7 @@ let index = {
 			alert(JSON.stringify(error));
 		}); 
 
-	},
+	}
 	
 	/*login: function(){
 		let data ={
