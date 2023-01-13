@@ -54,6 +54,21 @@ public class Concept {
 		
 	============================================================================
 	
+	소프트웨어 생명 주기(Software Life Cycle)
+	
+	폭포수 모형(Waterfall Model)
+	
+	프로토타입 모형(Prototype Model, 원형 모형)
+	
+	나선형 모형(Spiral Model, 점진적 모형)
+	
+	애자일 모형(Agile Model)
+	
+	폭포수 모형과 애자일의 비교
+	
+	
+	
+	
 	
 	
 	
