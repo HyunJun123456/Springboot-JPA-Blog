@@ -4,12 +4,19 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cos.blog.config.auth.PrincipalDetail;
 import com.cos.blog.dto.ResponseDTO;
 import com.cos.blog.model.RoleType;
 import com.cos.blog.model.User;
@@ -21,7 +28,11 @@ public class UserApiController {
 	@Autowired // spring bean에 메모리를 등록해줌
 	private UserService userService;
 	
-
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 	
 	@PostMapping("/auth/joinProc") // 회원가입
 	public ResponseDTO<Integer> save(@RequestBody User user) { // username, password, email
@@ -47,6 +58,18 @@ public class UserApiController {
 		userService.update(user);
 		// 여기서는 트랜잭션이 종료되기 때문에 DB에 값은 변경이 됐음.
 		// 하지만 세션값은 변경되지 않은 상태이기 떄문에 우리가 직접 세션갑을 변경 예정임.
+		// 세션에 있는 Authentication을 건드리는게 아니라 AuthenticationManager를 건드리게끔 수정.
+		/*
+		 * Authentication authentication = new
+		 * UsernamePasswordAuthenticationToken(principal, null,
+		 * principal.getAuthorities()); SecurityContext securityContext =
+		 * SecurityContextHolder.getContext();
+		 * securityContext.setAuthentication(authentication);
+		 * session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
+		 */
+		// 세션 등록
+		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword() ));
+		SecurityContextHolder.getContext().setAuthentication(authentication);
 		return new ResponseDTO<Integer>(HttpStatus.OK.value(), 1);
 		
 		
