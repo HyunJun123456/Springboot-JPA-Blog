@@ -3,6 +3,7 @@ package com.cos.blog.controller;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.blog.config.auth.PrincipalDetail;
 
@@ -33,5 +34,9 @@ public class UserController {
 	 * 세션에 시큐리티 컨텍스트에 Authentication 객체를 저장 가능
 	 * */
 	
+	@GetMapping("/auth/kakao/callback") // code를 받으면 응답이 된거임.
+	public @ResponseBody String kakaoCallback(String code) {// Data를 리턴해주는 컨트롤러 함수
+		return "카카오 인증 완료 : 코드값 : "+code;
+	}
 	
 }
