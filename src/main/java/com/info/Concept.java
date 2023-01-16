@@ -66,6 +66,20 @@ public class Concept {
 	
 	폭포수 모형과 애자일의 비교
 	
+	소프트웨어 공학
+	
+	애자일 선언
+	
+	스크럼의 개요
+	
+	스크럼 개발 프로세스
+	
+	XP(eXtreme Programming) -> 피존의 용기 단순
+	
+	XP 개발 프로세스
+	
+	
+	
 	
 	
 	
