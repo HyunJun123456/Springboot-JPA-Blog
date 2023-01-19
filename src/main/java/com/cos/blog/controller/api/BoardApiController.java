@@ -40,7 +40,7 @@ public class BoardApiController {
 		System.out.println("BoardApiController : update : id : "+id);
 		System.out.println("BoardApiController : update : board : "+board.getTitle());
 		System.out.println("BoardApiController : update : board : "+board.getContent());
-		System.out.println("BoardApiController : update : board : "+board.getReply());
+		System.out.println("BoardApiController : update : board : "+board.getReplys());
 		System.out.println("BoardApiController : update : board : "+board.getCreateDate());
 		
 		boardService.update(id, board);
