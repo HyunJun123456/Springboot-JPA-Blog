@@ -112,11 +112,23 @@ public class Concept {
 	
 	요구사항의 유형
 	
+	요구사항 개발 프로세스
 	
+	요구사항 도출(Requirement Elicitation, 요구사항 수집)
 	
+	요구사항 분석(Requirement Analysis)
 	
+	요구사항 명세(Requirement Specification)
 	
+	요구사항 확인(Requirement Validation, 요구사항 검증)
 	
+	요구공학(Requirements Engineering)
+	
+	소프트웨어 요구사항 명세서 / 요구사항 명세 기법
+	
+	요구사항 분석의 개요
+	
+	구조적 분석 기법
 	
 	
 	
