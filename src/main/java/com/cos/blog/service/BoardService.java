@@ -85,5 +85,10 @@ public class BoardService {
 		System.out.println("BoardService: "+result); 
 		// 오브젝트를 출력하게되면 자동으로 toString()이 호출됨..
 	}
+
+	@Transactional
+	public void commentDelete(int replyId) {
+		replyRepository.deleteById(replyId);
+	}
 	
 }
