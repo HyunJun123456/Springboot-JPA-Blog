@@ -3,6 +3,7 @@ package com.cos.blog.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -50,8 +52,9 @@ public class Board {
 	
 
 	//@JoinColumn(name="replyId") 필요가 없음. // 여러개가 있으니 FK로 설정해줄 수 없음.
-	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // mappedBy 연관관계의 주인이 아니다 (난 FK가 아니에요) DB에 칼럼을 만들지 마세요. // field명을 적어주면 됨
+	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) // mappedBy 연관관계의 주인이 아니다 (난 FK가 아니에요) DB에 칼럼을 만들지 마세요. // field명을 적어주면 됨
 	@JsonIgnoreProperties({"board"}) // 무한 참조 방지를 위해 board를 참조하지 않게 만듦 (board에서 reply를 reply에서 board를 호출하기 때문에)
+	@OrderBy("id desc")
 	private List<Reply> replys; // DB에 컴마로 구분하게 되면 1 정규화가 깨지게 됨.
 	
 	@CreationTimestamp

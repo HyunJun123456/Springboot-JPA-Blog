@@ -16,6 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Builder
 @AllArgsConstructor
@@ -40,4 +41,6 @@ public class Reply {
 	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	
 }
