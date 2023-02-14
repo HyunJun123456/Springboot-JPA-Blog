@@ -48,8 +48,32 @@ public class Concept2 {
 	 * 구성되어 있어 자신에게 할당된 자원을 점유하면서 앞이나 뒤에 있는
 	 * 프로세스의 자원을 요구해야 함
 	 * 
+	 * @기억장치의 관리 전략
+	 * 보조기억장치의 프로그램이나 데이터를 주기억장치에 적재시키는 시기,
+	 * 적재 위치 등을 지정하여 한정된 주기억장치의 공간을 효율적으로 사용하기 위한 것
+	 * 반입(Fetch) 전략
+	 * 배치(Placement) 전략
+	 * 교체(Replacement) 전략
 	 * 
+	 * @가상기억장치의 개요
+	 * 가상기억장치는 보조기억장치(하드디스크)의 일부를 주기억장치처럼 사용하는 것으로,
+	 * 용량이 작은 주기억장치를 마치 큰 용량을 가진 것처럼 사용하는 기법
 	 * 
+	 * @페이지 교체 알고리즘의 개요
+	 * 페이지 부재(Page Fault)가 발생하면 가상기억장치에서 필요한 페이지를 찾아 주기억장치에 
+	 * 적재해야 하는데, 이때 주기억장치의 모든 페이지 프레임이 사용중이면 어떤 페이지 프레임을
+	 * 선택하여 교체할 것인지를 결정하는 기법이 페이지 교체 알고리즘
+	 * 
+	 * @주요 페이지 교체 알고리즘
+	 * OPT(OPTimal replacement, 최적 교체)
+	 * FIFO(First In First Out)
+	 * LRU(Least Recently Used)
+	 * LFU(Least Frequently Used)
+	 * NUR(Not Used Recently)
+	 * SCR(Second Chance Replacement, 2차 기회 교체)
+	 * 
+	 * @UNIX의 개요 및 특징
+	 * 1960년대 AT&T 벨(Bell) 연구소, MIT, General Electric이 공동 개발한 운영체제
 	 * 
 	 * 
 	 * 
